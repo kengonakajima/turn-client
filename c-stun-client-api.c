@@ -149,7 +149,8 @@ int stun_xor_addr(int sockfd,char * stun_server_ip,unsigned short stun_server_po
 				break;
 			}
 			i += (4  + attr_length);
-
+                        short port = /*ntohs*/ntohs(*(short *)(&buf[20+6]));
+                        printf("ip = %d.%d.%d.%d:%d\n",buf[20+8],buf[20+9],buf[20+10],buf[20+11],port);
 
         	}
 
